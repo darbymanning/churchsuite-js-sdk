@@ -1,0 +1,37 @@
+{
+  "name": "churchsuite-js-sdk",
+  "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "email": "me@darbymanning.com",
+    "name": "Darby Manning",
+    "url": "https://darbymanning.com"
+  },
+  "repository": {
+    "url": "https://github.com/darbymanning/churchsuite-js-sdk"
+  },
+  "main": "./dist/churchsuite.umd.js",
+  "module": "./dist/churchsuite.es.js",
+  "types": "./lib/churchsuite.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/churchsuite.es.js",
+      "require": "./dist/churchsuite.umd.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "cross-fetch": "^3.1.5",
+    "httpie": "^1.1.2",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.0"
+  },
+  "license": "MIT"
+}
