@@ -22,7 +22,7 @@ This is an unofficial [ChurchSuite](https://churchsuite.com) JavaScript SDK, bui
 
 ## Usage
 
-```node
+```bash
 npm i churchsuite-js-sdk
 ```
 
@@ -37,11 +37,5 @@ const options = {
 
 const client = createClient(options);
 
-const user = await client.whoAmI();
+const user = await client.account.user();
 ```
-
-## Methods
-
-| Name     | Description                               | Reference                                                                                    |
-| -------- | ----------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `whoAmI` | Return data on the user accessing the API | [🔗](https://github.com/ChurchSuite/churchsuite-api/blob/master/modules/account.md#get-user) |
