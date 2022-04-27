@@ -9,10 +9,10 @@ function transformToJSON(obj: string | object): string {
 
 const fetcher = {
   create: ({
-    baseURL,
+    baseURL = "",
     headers,
   }: {
-    baseURL: string;
+    baseURL?: string;
     headers: Record<string, string>;
   }) => {
     const request = async (url: RequestInfo, options?: RequestInit) => {

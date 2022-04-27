@@ -1,5 +1,6 @@
 import { encode } from "qss";
 import fetcher from "./fetcher";
+import oauth2 from "./oauth2";
 import type {
   Account,
   AddressBook,
@@ -9,6 +10,7 @@ import type {
   ClientInstance,
   ClientOptions,
   Giving,
+  My,
   Rotas,
   SmallGroups,
 } from "./churchsuite";
@@ -67,7 +69,7 @@ export default function createClient(options: ClientOptions): ClientInstance {
     },
   });
 
-  return {
+  const sdk: ClientInstance = {
     account: {
       async user() {
         return await get<Account.User>("/v1/whoami");
@@ -266,4 +268,41 @@ export default function createClient(options: ClientOptions): ClientInstance {
       },
     },
   };
+
+  if (options.oauth2) {
+    sdk.oauth2 = oauth2(options, sdk);
+
+    function oauth2Fetcher() {
+      if (!sdk.oauth2?.accessToken) throw Error("No access token set");
+
+      return fetcher.create({
+        baseURL: "https://api.churchsuite.com",
+        headers: {
+          "X-Account": options["X-Account"],
+          "X-Application": options["X-Application"],
+          "X-Auth": sdk.oauth2.accessToken,
+        },
+      });
+    }
+
+    const { get } = oauth2Fetcher();
+
+    sdk.my = {
+      async details() {
+        return await get<My.Details>("/v1/my/details");
+      },
+      async contacts(query) {
+        const params = query ? encode({ q: query }) : "";
+        return await get<My.Contacts>(`/v1/my/contacts${params}`);
+      },
+      async children() {
+        return await get<My.Children>("/v1/my/children");
+      },
+      async child(id) {
+        return await get<My.Child>(`/v1/my/child/${id}`);
+      },
+    };
+  }
+
+  return sdk;
 }
