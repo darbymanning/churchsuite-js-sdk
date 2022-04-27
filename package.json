@@ -1,6 +1,6 @@
 {
   "name": "churchsuite-js-sdk",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "files": [
     "dist",
     "lib"
@@ -27,7 +27,7 @@
     "dev:node": "vite-node .idea/index.ts -w",
     "build": "tsc && vite build && pnpm build:docs",
     "preview": "vite preview",
-    "build:docs": "typedoc ./lib/*",
+    "build:docs": "typedoc --entryPointStrategy expand ./lib",
     "prepare": "pnpm build"
   },
   "devDependencies": {

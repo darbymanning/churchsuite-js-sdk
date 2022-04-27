@@ -1,10 +1,10 @@
-import fetcher from "./fetcher";
 import { encode } from "qss";
+import fetcher from "../fetcher";
 import type {
   ClientInstance,
   ClientOptions,
   OAuth2Options,
-} from "./churchsuite";
+} from "../churchsuite";
 
 export default function (
   options: ClientOptions,

@@ -7,7 +7,21 @@ function transformToJSON(obj: string | object): string {
     : JSON.stringify(JSON.parse(JSON.stringify(obj)));
 }
 
-const fetcher = {
+export interface FetcherInstance {
+  get: <T>(url: RequestInfo, options?: RequestInit) => FetcherResponse<T>;
+  post: <T>(url: RequestInfo, body: string | object) => FetcherResponse<T>;
+  put: <T>(url: RequestInfo, body: string | object) => FetcherResponse<T>;
+  del: <T>(url: RequestInfo) => FetcherResponse<T>;
+}
+
+export interface Fetcher {
+  create: (args: {
+    baseURL?: string;
+    headers: Record<string, string>;
+  }) => FetcherInstance;
+}
+
+const fetcher: Fetcher = {
   create: ({
     baseURL = "",
     headers,
