@@ -22,13 +22,7 @@ export interface Fetcher {
 }
 
 const fetcher: Fetcher = {
-  create: ({
-    baseURL = "",
-    headers,
-  }: {
-    baseURL?: string;
-    headers: Record<string, string>;
-  }) => {
+  create: ({ baseURL = "", headers }) => {
     const request = async (url: RequestInfo, options?: RequestInit) => {
       const response = await fetch(baseURL + url, { ...options, headers });
       const data = await response.json();
@@ -42,10 +36,10 @@ const fetcher: Fetcher = {
     };
 
     return {
-      get: async <T>(url: RequestInfo, options?: RequestInit) => {
-        return request(url, options) as FetcherResponse<T>;
+      async get(url, options) {
+        return request(url, options);
       },
-      post: async <T>(url: RequestInfo, body: string | object) => {
+      async post(url, body) {
         const options = {
           body: transformToJSON(body),
           method: "POST",
@@ -54,9 +48,9 @@ const fetcher: Fetcher = {
           },
         };
 
-        return request(url, options) as FetcherResponse<T>;
+        return request(url, options);
       },
-      put: async <T>(url: RequestInfo, body: string | object) => {
+      async put(url, body) {
         const options = {
           body: transformToJSON(body),
           method: "PUT",
@@ -65,10 +59,10 @@ const fetcher: Fetcher = {
           },
         };
 
-        return request(url, options) as FetcherResponse<T>;
+        return request(url, options);
       },
-      del: async <T>(url: RequestInfo) => {
-        return request(url, { method: "DELETE" }) as FetcherResponse<T>;
+      async del(url) {
+        return request(url, { method: "DELETE" });
       },
     };
   },

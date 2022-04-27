@@ -1,15 +1,15 @@
-import fetcher from "./fetcher";
-import oauth2 from "./modules/oauth2";
-import type { ClientInstance, ClientOptions } from "./churchsuite";
 import account from "./modules/account";
 import addressBook from "./modules/addressBook";
 import attendance from "./modules/attendance";
 import calendar from "./modules/calendar";
 import children from "./modules/children";
+import fetcher from "./fetcher";
 import giving from "./modules/giving";
+import my from "./modules/my";
+import oauth2 from "./modules/oauth2";
 import rotas from "./modules/rotas";
 import smallGroups from "./modules/smallGroups";
-import my from "./modules/my";
+import type { ClientInstance, ClientOptions } from "./churchsuite";
 
 export default function createClient(options: ClientOptions): ClientInstance {
   const fetcherInstance = fetcher.create({
