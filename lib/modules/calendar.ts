@@ -1,3 +1,4 @@
+import { encode } from "qss";
 import type { Calendar, ClientInstance } from "../churchsuite";
 import type { FetcherInstance } from "../fetcher";
 
@@ -13,8 +14,22 @@ export default function ({
     },
     events: {
       /** List/search events */
-      async list() {
-        return await get<Calendar.Events>("/v1/calendar/events");
+      async list(args) {
+        const params = args
+          ? encode(
+              {
+                q: args.query,
+                start_date: args.startDate,
+                end_date: args.endDate,
+                group_by_sequence: args.groupBySequence,
+                group_by_sequence_and_name: args.groupBySequenceAndName,
+                categories: args.categories?.toString(),
+              },
+              "?"
+            )
+          : "";
+
+        return await get<Calendar.Events>(`/v1/calendar/events${params}`);
       },
       /** Return data for a specific event */
       async show(id) {

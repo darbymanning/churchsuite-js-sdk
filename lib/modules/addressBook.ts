@@ -57,13 +57,13 @@ export default function ({
         const params = args
           ? encode(
               {
-                name: args?.name,
-                q: args?.query,
-                page: args?.page,
-                per_page: args?.perPage,
+                name: args.name,
+                q: args.query,
+                page: args.page,
+                per_page: args.perPage,
                 public_access: maybeBooleanToNumber(args.publicAccess),
                 public_visible: maybeBooleanToNumber(args.publicVisible),
-                view: args?.view,
+                view: args.view,
               },
               "?"
             )

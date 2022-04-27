@@ -1146,6 +1146,21 @@ export interface ListContactsArgs {
   view?: "active" | "archived";
 }
 
+export interface ListEventsArgs {
+  /** Return future events whose name contains the string provided */
+  query?: string;
+  /** Return events starting from a specific date */
+  startDate?: DateString;
+  /** Return events until a specific date */
+  endDate?: DateString;
+  /** Group sequence events together only showing the next event in that sequence */
+  groupBySequence?: boolean;
+  /** Group sequence events together only showing the next events in that sequence with unique names */
+  groupBySequenceAndName?: boolean;
+  /** Return events within categories provided */
+  categories?: number[];
+}
+
 type d = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0;
 type YYYY = `19${d}${d}` | `20${d}${d}`;
 type oneToNine = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
@@ -1235,7 +1250,7 @@ export interface ClientInstance {
     info: () => FetcherResponse<Calendar.Info>;
     events: {
       /** List/search events */
-      list: () => FetcherResponse<Calendar.Events>;
+      list: (args: ListEventsArgs) => FetcherResponse<Calendar.Events>;
       /** Return data for a specific event */
       show: (
         idOrIdentifier: number | string
