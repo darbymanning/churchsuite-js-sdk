@@ -1175,14 +1175,6 @@ type HexString = `${string | number}${string | number}${string | number}${
   | number}${string | number}${string | number}`;
 
 export interface ClientInstance {
-  oauth2?: {
-    accessToken?: string;
-    authorizationUrl: string;
-    tokenUrl: string;
-    createToken: (code?: string) => Promise<any>;
-    getToken: () => string | undefined;
-    setToken: (newAccessToken: string) => void;
-  };
   account: {
     user: () => FetcherResponse<Account.User>;
     profile: () => FetcherResponse<Account.Profile>;
@@ -1281,14 +1273,8 @@ export interface ClientInstance {
   children: {
     info: () => FetcherResponse<Children.Info>;
   };
-  rotas: {
-    info: () => FetcherResponse<Rotas.Info>;
-  };
   giving: {
     info: () => FetcherResponse<Giving.Info>;
-  };
-  smallGroups: {
-    info: () => FetcherResponse<SmallGroups.Info>;
   };
   my?: {
     /** Return the contact details for the logged in contact */
@@ -1299,6 +1285,20 @@ export interface ClientInstance {
     children: () => FetcherResponse<My.Children>;
     /** Return the details of a specific child linked to the current contact */
     child: (id: number) => FetcherResponse<My.Child>;
+  };
+  oauth2?: {
+    accessToken?: string;
+    authorizationUrl: string;
+    tokenUrl: string;
+    createToken: (code?: string) => Promise<any>;
+    getToken: () => string | undefined;
+    setToken: (newAccessToken: string) => void;
+  };
+  rotas: {
+    info: () => FetcherResponse<Rotas.Info>;
+  };
+  smallGroups: {
+    info: () => FetcherResponse<SmallGroups.Info>;
   };
 }
 
