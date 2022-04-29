@@ -1,13 +1,11 @@
 import { encode } from "qss";
-import type { Calendar, ClientInstance } from "../churchsuite";
-import type { FetcherInstance } from "../fetcher";
 
 export default function ({
   get,
   post,
   put,
   del,
-}: FetcherInstance): ClientInstance["calendar"] {
+}: Fetcher.FetcherInstance): ClientInstance["calendar"] {
   return {
     async info() {
       return await get<Calendar.Info>("/v1/module/calendar");

@@ -1,8 +1,8 @@
 import { encode } from "qss";
-import type { ClientInstance, My } from "../churchsuite";
-import type { FetcherInstance } from "../fetcher";
 
-export default function ({ get }: FetcherInstance): ClientInstance["my"] {
+export default function ({
+  get,
+}: Fetcher.FetcherInstance): ClientInstance["my"] {
   return {
     async details() {
       return await get<My.Details>("/v1/my/details");

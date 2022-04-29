@@ -1,17 +1,12 @@
 import { encode } from "qss";
 import fetcher from "../fetcher";
-import type {
-  ClientInstance,
-  ClientOptions,
-  OAuth2Options,
-} from "../churchsuite";
 
 export default function (
   options: ClientOptions,
   sdk: ClientInstance
 ): ClientInstance["oauth2"] {
   const { redirectUri, clientId, clientSecret } =
-    options.oauth2 as Required<OAuth2Options>;
+    options.oauth2 as Required<OAuth2.Options>;
   const params = {
     response_type: "code",
     client_id: clientId,

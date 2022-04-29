@@ -1,7 +1,5 @@
 import { encode } from "qss";
 import { maybeBooleanToNumber } from "../utils";
-import type { AddressBook, ClientInstance } from "../churchsuite";
-import type { FetcherInstance } from "../fetcher";
 
 function resolveContactForApi(
   args: AddressBook.CreateContactArgs | AddressBook.UpdateContactArgs
@@ -47,7 +45,7 @@ export default function ({
   post,
   put,
   del,
-}: FetcherInstance): ClientInstance["addressBook"] {
+}: Fetcher.FetcherInstance): ClientInstance["addressBook"] {
   return {
     async info() {
       return await get<AddressBook.Info>("/v1/module/addressbook");

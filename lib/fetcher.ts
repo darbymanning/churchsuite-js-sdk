@@ -1,5 +1,4 @@
 import fetch from "cross-fetch";
-import type { FetcherResponse } from "./churchsuite";
 
 function transformToJSON(obj: string | object): string {
   return typeof obj === "string"
@@ -7,21 +6,7 @@ function transformToJSON(obj: string | object): string {
     : JSON.stringify(JSON.parse(JSON.stringify(obj)));
 }
 
-export interface FetcherInstance {
-  get: <T>(url: RequestInfo, options?: RequestInit) => FetcherResponse<T>;
-  post: <T>(url: RequestInfo, body: string | object) => FetcherResponse<T>;
-  put: <T>(url: RequestInfo, body: string | object) => FetcherResponse<T>;
-  del: <T>(url: RequestInfo) => FetcherResponse<T>;
-}
-
-export interface Fetcher {
-  create: (args: {
-    baseURL?: string;
-    headers: Record<string, string>;
-  }) => FetcherInstance;
-}
-
-const fetcher: Fetcher = {
+const fetcher: Fetcher.Methods = {
   create: ({ baseURL = "", headers }) => {
     const request = async (url: RequestInfo, options?: RequestInit) => {
       const response = await fetch(baseURL + url, { ...options, headers });

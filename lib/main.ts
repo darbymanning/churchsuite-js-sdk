@@ -9,7 +9,6 @@ import my from "./modules/my";
 import oauth2 from "./modules/oauth2";
 import rotas from "./modules/rotas";
 import smallGroups from "./modules/smallGroups";
-import type { ClientInstance, ClientOptions } from "./churchsuite";
 
 export default function createClient(options: ClientOptions): ClientInstance {
   const fetcherInstance = fetcher.create({

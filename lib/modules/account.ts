@@ -1,7 +1,6 @@
-import type { Account, ClientInstance } from "../churchsuite";
-import type { FetcherInstance } from "../fetcher";
-
-export default function ({ get }: FetcherInstance): ClientInstance["account"] {
+export default function ({
+  get,
+}: Fetcher.FetcherInstance): ClientInstance["account"] {
   return {
     async user() {
       return await get<Account.User>("/v1/whoami");
