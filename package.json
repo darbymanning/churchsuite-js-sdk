@@ -15,7 +15,7 @@
   },
   "main": "./dist/churchsuite.umd.js",
   "module": "./dist/churchsuite.es.js",
-  "types": "./lib/churchsuite.d.ts",
+  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/churchsuite.es.js",
@@ -25,7 +25,7 @@
   "scripts": {
     "dev": "vite",
     "dev:node": "vite-node .idea/index.ts -w",
-    "build": "tsc && vite build && pnpm build:docs",
+    "build": "vite build && tsc && pnpm build:docs",
     "preview": "vite preview",
     "build:docs": "typedoc --entryPointStrategy expand ./lib",
     "prepare": "pnpm build"

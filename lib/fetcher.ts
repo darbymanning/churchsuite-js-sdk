@@ -1,5 +1,28 @@
 import fetch from "cross-fetch";
 
+export declare namespace Fetcher {
+  interface FetcherInstance {
+    get: <T>(url: RequestInfo, options?: RequestInit) => FetcherResponse<T>;
+    post: <T>(url: RequestInfo, body: string | object) => FetcherResponse<T>;
+    put: <T>(url: RequestInfo, body: string | object) => FetcherResponse<T>;
+    del: <T>(url: RequestInfo) => FetcherResponse<T>;
+  }
+
+  type FetcherResponse<T> = Promise<{
+    data: T;
+    response: any;
+    status: number;
+    statusText: string;
+  }>;
+
+  interface Methods {
+    create: (args: {
+      baseURL?: string;
+      headers: Record<string, string>;
+    }) => FetcherInstance;
+  }
+}
+
 function transformToJSON(obj: string | object): string {
   return typeof obj === "string"
     ? obj

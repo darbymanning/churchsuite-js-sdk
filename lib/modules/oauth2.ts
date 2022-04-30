@@ -1,5 +1,25 @@
 import { encode } from "qss";
 import fetcher from "../fetcher";
+import type { ClientInstance, ClientOptions } from "../main";
+
+export declare namespace OAuth2 {
+  interface Methods {
+    accessToken?: string;
+    authorizationUrl: string;
+    tokenUrl: string;
+    createToken: (code?: string) => Promise<any>;
+    getToken: () => string | undefined;
+    setToken: (newAccessToken: string) => void;
+  }
+
+  interface Options {
+    accessToken?: string;
+    clientId: string;
+    clientSecret: string;
+    code?: string;
+    redirectUri: string;
+  }
+}
 
 export default function (
   options: ClientOptions,
