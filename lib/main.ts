@@ -66,23 +66,7 @@ export default function createClient(options: ClientOptions): ClientInstance {
   if (!options.oauth2) return sdk;
 
   sdk.oauth2 = oauth2(options, sdk);
-
-  function getOauth2FetcherInstance() {
-    if (!sdk.oauth2?.accessToken) throw Error("No access token set");
-
-    return fetcher.create({
-      baseURL: "https://api.churchsuite.com",
-      headers: {
-        "X-Account": options["X-Account"],
-        "X-Application": options["X-Application"],
-        "X-Auth": sdk.oauth2.accessToken,
-      },
-    });
-  }
-
-  const oauth2FetcherInstance = getOauth2FetcherInstance();
-
-  sdk.my = my(oauth2FetcherInstance);
+  sdk.my = my(options, sdk);
 
   return sdk;
 }

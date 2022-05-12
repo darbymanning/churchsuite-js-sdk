@@ -1,6 +1,6 @@
 import type { ClientInstance } from "../main";
 import type { Fetcher } from "../fetcher";
-import type { BooleanAsNumber } from "../types";
+import type { BooleanAsNumber, EmailString } from "../types";
 
 export declare namespace SmallGroups {
   /**
@@ -27,7 +27,7 @@ export declare namespace SmallGroups {
         embed_hide_meeting_details: BooleanAsNumber;
         embed_hide_dates: BooleanAsNumber;
         embed_hide_description: BooleanAsNumber;
-        embed_notification_email: string;
+        embed_notification_email: EmailString;
         embed_notification_email_obfuscate: BooleanAsNumber;
         embed_signup_page_title: string;
         embed_signup_page_message: string;

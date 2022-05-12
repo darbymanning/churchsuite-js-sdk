@@ -131,7 +131,7 @@ export declare namespace AddressBook {
     telephone: string;
     mobile: string;
     work_telephone: string;
-    email: string;
+    email: EmailString;
     job: string | null;
     employer: string | null;
     public_options: {
