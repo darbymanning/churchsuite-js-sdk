@@ -36,7 +36,7 @@ export declare namespace Giving {
   }
 
   interface Methods {
-    info: () => Fetcher.FetcherResponse<Giving.Info>;
+    info: () => Fetcher.FetcherResponse<Info>;
   }
 }
 export default function ({

@@ -464,20 +464,20 @@ export default function ({
       async list() {
         return await get<Children.Gatherings>("/v1/children/gatherings");
       },
-      async show(id: number) {
+      async show(id) {
         return await get<Children.Gathering>(`/v1/children/gathering/${id}`);
       },
     },
     groups: {
-      async show(id: number) {
+      async show(id) {
         return await get<Children.Gathering>(`/v1/children/group/${id}`);
       },
-      async attendance(id: number) {
+      async attendance(id) {
         return await get<Children.Attendance>(
           `/v1/children/group/${id}/attendance`
         );
       },
-      async children(id: number) {
+      async children(id) {
         return await get<Children.Children>(
           `/v1/children/group/${id}/children`
         );
@@ -487,10 +487,10 @@ export default function ({
       async list() {
         return await get<Children.Tags>("/v1/children/tags");
       },
-      async show(id: number) {
+      async show(id) {
         return await get<Children.Tag>(`/v1/children/tag/${id}`);
       },
-      async children(id: number) {
+      async children(id) {
         return await get<Children.Children>(`/v1/children/tag/${id}/children`);
       },
     },
@@ -498,10 +498,10 @@ export default function ({
       async list() {
         return await get<Children.KeyDates>("/v1/children/keydates");
       },
-      async show(id: number) {
+      async show(id) {
         return await get<AddressBook.KeyDate>(`/v1/children/keydates/${id}`);
       },
-      async children(id: number) {
+      async children(id) {
         return await get<Children.KeyDateChildren>(
           `/v1/children/keydates/${id}/children`
         );

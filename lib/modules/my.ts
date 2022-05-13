@@ -63,11 +63,11 @@ export declare namespace My {
 
   interface Methods {
     /** Return the contact details for the logged in contact */
-    details: () => Fetcher.FetcherResponse<My.Details>;
+    details: () => Fetcher.FetcherResponse<Details>;
     /** List/search other publicly visible contacts */
-    contacts: (query?: string) => Fetcher.FetcherResponse<My.Contacts>;
+    contacts: (query?: string) => Fetcher.FetcherResponse<Contacts>;
     /** Return the details of any children linked to the current contact */
-    children: () => Fetcher.FetcherResponse<My.Children>;
+    children: () => Fetcher.FetcherResponse<Children>;
     /** Return the details of a specific child linked to the current contact */
     child: (id: number) => Fetcher.FetcherResponse<Children.Child>;
   }

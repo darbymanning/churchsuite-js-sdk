@@ -25,7 +25,7 @@ export declare namespace Attendance {
   }
 
   interface Methods {
-    info: () => Fetcher.FetcherResponse<Attendance.Info>;
+    info: () => Fetcher.FetcherResponse<Info>;
   }
 }
 

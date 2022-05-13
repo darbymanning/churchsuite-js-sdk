@@ -402,65 +402,57 @@ export declare namespace AddressBook {
   }
 
   interface Methods {
-    info: () => Fetcher.FetcherResponse<AddressBook.Info>;
+    info: () => Fetcher.FetcherResponse<Info>;
     contacts: {
       /** List/search contacts */
-      list: (
-        args?: ListContactsArgs
-      ) => Fetcher.FetcherResponse<AddressBook.Contacts>;
+      list: (args?: ListContactsArgs) => Fetcher.FetcherResponse<Contacts>;
       /** Return data for a specific contact */
-      show: (id: number) => Fetcher.FetcherResponse<AddressBook.Contact>;
+      show: (id: number) => Fetcher.FetcherResponse<Contact>;
       /** Return tags for a specific contact */
-      tags: (id: number) => Fetcher.FetcherResponse<AddressBook.ContactTags>;
+      tags: (id: number) => Fetcher.FetcherResponse<ContactTags>;
       /** Return key dates for a specific contact */
-      keyDates: (id: number) => Fetcher.FetcherResponse<AddressBook.KeyDates>;
+      keyDates: (id: number) => Fetcher.FetcherResponse<KeyDates>;
       /** Create a contact */
-      create: (
-        args: AddressBook.CreateContactArgs
-      ) => Fetcher.FetcherResponse<AddressBook.Contact>;
+      create: (args: CreateContactArgs) => Fetcher.FetcherResponse<Contact>;
       /** Update a contact */
       update: (
         id: number,
-        args: AddressBook.UpdateContactArgs
-      ) => Fetcher.FetcherResponse<AddressBook.Contact>;
+        args: UpdateContactArgs
+      ) => Fetcher.FetcherResponse<Contact>;
       /** Delete a contact */
       del: (id: number) => void;
     };
     tags: {
       /** Return tags ordered alphabetically */
-      list: () => Fetcher.FetcherResponse<AddressBook.Tags>;
+      list: () => Fetcher.FetcherResponse<Tags>;
       /** Return data for a specific tag */
       show: (
         id: number,
         contacts?: boolean
-      ) => Fetcher.FetcherResponse<AddressBook.ShowTag>;
+      ) => Fetcher.FetcherResponse<ShowTag>;
       /** Return contacts for a specific tag */
-      contacts: (id: number) => Fetcher.FetcherResponse<AddressBook.Contacts>;
+      contacts: (id: number) => Fetcher.FetcherResponse<Contacts>;
     };
     flows: {
       /** Return flows ordered alphabetically */
-      list: () => Fetcher.FetcherResponse<AddressBook.Flows>;
+      list: () => Fetcher.FetcherResponse<Flows>;
       /** Return data for a specific flow */
-      show: (id: number) => Fetcher.FetcherResponse<AddressBook.Flow>;
+      show: (id: number) => Fetcher.FetcherResponse<Flow>;
       /** Return tracking for a specific flow */
-      tracking: (
-        id: number
-      ) => Fetcher.FetcherResponse<AddressBook.FlowTracking>;
+      tracking: (id: number) => Fetcher.FetcherResponse<FlowTracking>;
       /** Add contacts to be tracked through a flow */
       addContacts: (
         id: number,
-        args: AddressBook.AddContactsToFlowPayload
-      ) => Fetcher.FetcherResponse<AddressBook.AddContactsToFlowTracking>;
+        args: AddContactsToFlowPayload
+      ) => Fetcher.FetcherResponse<AddContactsToFlowTracking>;
     };
     keyDates: {
       /** Return key dates ordered alphabetically */
-      list: () => Fetcher.FetcherResponse<AddressBook.KeyDates>;
+      list: () => Fetcher.FetcherResponse<KeyDates>;
       /** Return data for a specific key date */
-      show: (id: number) => Fetcher.FetcherResponse<AddressBook.KeyDate>;
+      show: (id: number) => Fetcher.FetcherResponse<KeyDate>;
       /** Return contacts for a specific key date */
-      contacts: (
-        id: number
-      ) => Fetcher.FetcherResponse<AddressBook.KeyDateContacts>;
+      contacts: (id: number) => Fetcher.FetcherResponse<KeyDateContacts>;
     };
   }
 }

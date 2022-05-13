@@ -32,7 +32,7 @@ export declare namespace Rotas {
   }
 
   interface Methods {
-    info: () => Fetcher.FetcherResponse<Rotas.Info>;
+    info: () => Fetcher.FetcherResponse<Info>;
   }
 }
 

@@ -92,8 +92,8 @@ export declare namespace Account {
   }
 
   interface Methods {
-    user: () => Fetcher.FetcherResponse<Account.User>;
-    profile: () => Fetcher.FetcherResponse<Account.Profile>;
+    user: () => Fetcher.FetcherResponse<User>;
+    profile: () => Fetcher.FetcherResponse<Profile>;
   }
 }
 

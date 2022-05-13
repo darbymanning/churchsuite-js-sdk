@@ -305,36 +305,34 @@ export declare namespace Calendar {
   }
 
   interface Methods {
-    info: () => Fetcher.FetcherResponse<Calendar.Info>;
+    info: () => Fetcher.FetcherResponse<Info>;
     events: {
       /** List/search events */
-      list: (args: ListEventsArgs) => Fetcher.FetcherResponse<Calendar.Events>;
+      list: (args: ListEventsArgs) => Fetcher.FetcherResponse<Events>;
       /** Return data for a specific event */
-      show: (
-        idOrIdentifier: number | string
-      ) => Fetcher.FetcherResponse<Calendar.Event>;
+      show: (idOrIdentifier: number | string) => Fetcher.FetcherResponse<Event>;
       /** Return tickets data for a specific event */
-      tickets: (id: number) => Fetcher.FetcherResponse<Calendar.EventTickets>;
+      tickets: (id: number) => Fetcher.FetcherResponse<EventTickets>;
       signups: {
         /** Return data regarding people who have signed up for a specific event */
-        list: (id: number) => Fetcher.FetcherResponse<Calendar.EventSignUps>;
+        list: (id: number) => Fetcher.FetcherResponse<EventSignUps>;
         /** Create a new sign up for a specific event */
         create: (
           id: number,
-          args: Calendar.EventCreateSignupPayload
-        ) => Fetcher.FetcherResponse<Calendar.EventSignUpResponse>;
+          args: EventCreateSignupPayload
+        ) => Fetcher.FetcherResponse<EventSignUpResponse>;
         /** Update the specified sign up for a specific event */
         update: (
           eventId: number,
           signUpId: number,
-          args: Calendar.EventUpdateSignupPayload
-        ) => Fetcher.FetcherResponse<Calendar.EventSignUp>;
+          args: EventUpdateSignupPayload
+        ) => Fetcher.FetcherResponse<EventSignUp>;
         /** Remove the specified sign up for a specific event */
         del: (eventId: number, signUpId: number) => void;
       };
     };
     /** Return categories ordered alphabetically */
-    categories: () => Fetcher.FetcherResponse<Calendar.Categories>;
+    categories: () => Fetcher.FetcherResponse<Categories>;
   }
 }
 
