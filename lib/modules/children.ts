@@ -4,6 +4,7 @@ import type {
   BooleanAsNumber,
   DateString,
   EmailString,
+  Image,
   PaginatedResponse,
 } from "../types";
 import type { AddressBook } from "./addressBook";
@@ -149,7 +150,7 @@ export declare namespace Children {
     site_id: number;
     site_ids: string[];
     status: "active" | "archived";
-    images: []; // TODO
+    images: [] | Image[];
     mtime: string;
     muser: string;
     ctime: string;

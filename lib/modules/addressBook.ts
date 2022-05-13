@@ -6,6 +6,7 @@ import type {
   DateString,
   EmailString,
   ExternalLink,
+  Image,
   PaginatedResponse,
 } from "../types";
 import type { ClientInstance } from "../main";
@@ -157,7 +158,7 @@ export declare namespace AddressBook {
       longitude: string;
     };
     custom_fields: [];
-    images: [];
+    images: [] | Image[];
     ongoing_consent: {
       required: BooleanAsNumber;
       request_ctime: string | null;

@@ -4,6 +4,7 @@ import type {
   BooleanAsNumber,
   DateString,
   EmailString,
+  Image,
   PaginatedResponse,
 } from "../types";
 import { AddressBook } from "./addressBook";
@@ -102,7 +103,7 @@ export declare namespace SmallGroups {
       address_name: string;
     };
     description: null | string;
-    images: []; // TODO
+    images: [] | Image[];
     no_members: number;
     public_visible: boolean;
     public_signup: boolean;

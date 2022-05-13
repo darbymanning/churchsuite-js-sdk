@@ -1,6 +1,6 @@
 import type { ClientInstance } from "../main";
 import type { Fetcher } from "../fetcher";
-import type { BooleanAsNumber, EmailString } from "../types";
+import type { BooleanAsNumber, EmailString, Image } from "../types";
 
 /**
  * Responses for data relating to the API user
@@ -45,7 +45,7 @@ export declare namespace Account {
     last_login: string | null;
     modules: Partial<Record<Module["id"], Module>>;
     ical_url: string;
-    images: [];
+    images: [] | Image[];
     sites: Record<string, Site>;
     all_sites: boolean;
     api_access: boolean;

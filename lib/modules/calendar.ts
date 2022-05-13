@@ -6,6 +6,7 @@ import type {
   DateString,
   EmailString,
   HexString,
+  Image,
   PaginatedResponse,
 } from "../types";
 import type { AddressBook } from "./addressBook";
@@ -101,7 +102,7 @@ export declare namespace Calendar {
       name: string;
     };
     capacity: null | number;
-    images: [];
+    images: [] | Image[];
     location: {
       address: string;
       latitude: string | null;
@@ -223,7 +224,7 @@ export declare namespace Calendar {
       email: EmailString;
       first_name: string;
       id: string | number;
-      images: []; // TODO
+      images: [] | Image[];
       last_name: string;
       mobile: string;
       notes: string;

@@ -28,3 +28,39 @@ export interface PaginatedResponse {
     per_page: number;
   };
 }
+
+type AssetFormat = "jpg" | "png";
+type AssetUrl = `https://cdn.churchsuite.com/${string}.${AssetFormat}"`;
+
+export interface Image {
+  thumb: {
+    px: 128;
+    square: boolean;
+    mtime: number;
+    url: AssetUrl;
+  };
+  sm: {
+    px: 256;
+    square: boolean;
+    mtime: number;
+    url: AssetUrl;
+  };
+  md: {
+    px: 512;
+    square: boolean;
+    mtime: number;
+    url: AssetUrl;
+  };
+  lg: {
+    px: 1024;
+    square: boolean;
+    mtime: number;
+    url: AssetUrl;
+  };
+  original_16: AssetUrl;
+  original_100: AssetUrl;
+  original_500: AssetUrl;
+  original_1000: AssetUrl;
+  square_16: AssetUrl;
+  square_100: AssetUrl;
+}
